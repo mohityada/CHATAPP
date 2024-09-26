@@ -8,3 +8,4 @@ router.get("/", protectRoute, getUsersForSideBar);
 
 
 export default router;
+

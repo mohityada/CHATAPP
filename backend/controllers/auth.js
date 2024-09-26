@@ -5,8 +5,7 @@ import generateTokenAndSetCookie from "../utils/jwtTokenGenerator.js";
 export const signup = async(req, res) => {
     try{
         const {fullName, userName, password, confirmPassword, gender} = req.body;
-
-        if(password != confirmPassword){
+        if(password !== confirmPassword){
             return res.status(400).json({error:"Password and Confirm Password do not match"});
         }
         const user = await User.findOne({userName});
@@ -49,8 +48,8 @@ export const signup = async(req, res) => {
 };
 
 export const login = async(req, res) => {
-    console.log("Loing");
     try{
+        console.log("Logging in...")
         const {userName, password} = req.body;
 
         const user = await User.findOne({userName});
